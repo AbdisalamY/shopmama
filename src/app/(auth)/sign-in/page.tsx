@@ -1,6 +1,5 @@
 // app/(auth)/sign-in/page.tsx
 import SignInForm from "@/components/auth/SignInForm";
-import AuthLayout from "@/components/auth/AuthLayout";
 
 export const metadata = {
   title: "Sign in | Teke Teke",
@@ -8,9 +7,5 @@ export const metadata = {
 };
 
 export default function SignInPage() {
-  return (
-    <AuthLayout>
-      <SignInForm />
-    </AuthLayout>
-  );
+  return <SignInForm />;
 }

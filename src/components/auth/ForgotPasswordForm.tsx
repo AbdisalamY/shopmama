@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { ArrowLeft } from "lucide-react";
+import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -43,7 +44,12 @@ export default function ForgotPasswordForm() {
 
   if (isSubmitted) {
     return (
-      <div className="space-y-6">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="space-y-6"
+      >
         <Link 
           href="/sign-in" 
           className="flex items-center text-gray-600 hover:text-gray-900 mb-4"
@@ -51,19 +57,23 @@ export default function ForgotPasswordForm() {
           <ArrowLeft className="h-4 w-4 mr-2" />
           <span className="text-sm">Back to sign in</span>
         </Link>
-        
         <div className="text-center">
           <h1 className="text-2xl font-semibold tracking-tight">Check your email</h1>
           <p className="text-sm text-gray-500 mt-2">
             We've sent a password reset link to your email address. Please check your inbox.
           </p>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="space-y-6"
+    >
       <Link 
         href="/sign-in" 
         className="flex items-center text-gray-600 hover:text-gray-900 mb-4"
@@ -71,25 +81,27 @@ export default function ForgotPasswordForm() {
         <ArrowLeft className="h-4 w-4 mr-2" />
         <span className="text-sm">Back to sign in</span>
       </Link>
-      
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Forgot Password?</h1>
-        <p className="text-sm text-gray-500 mt-2">
-          Enter your email address and we'll send you a link to reset your password.
+        <h1 className="text-2xl font-bold text-black mb-6">Forgot Password?</h1>
+        <p className="text-base text-black mb-4">
+          Enter the email address you used when you joined and we'll send you instructions to reset your password.
+        </p>
+        <p className="text-base text-black mb-8">
+          For security reasons, we do <b>NOT</b> store your password. So rest assured that we will never send your password via email.
         </p>
       </div>
-      
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6">
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email address</FormLabel>
+                <FormLabel className="font-semibold text-black mb-2">Email Address</FormLabel>
                 <FormControl>
                   <Input 
-                    placeholder="hello@example.com" 
+                    className="bg-white border-2 border-pink-200 rounded-2xl px-6 py-5 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all duration-200 text-lg"
+                    placeholder="" 
                     type="email" 
                     {...field} 
                   />
@@ -98,12 +110,14 @@ export default function ForgotPasswordForm() {
               </FormItem>
             )}
           />
-          
-          <Button type="submit" className="w-full bg-indigo-900 hover:bg-indigo-800">
-            Reset Password
+          <Button
+            type="submit"
+            className="w-1/2 mx-auto h-10 rounded-full bg-[#0d0c22] hover:bg-[#565564] text-white font-bold text-base mt-4 transition-all duration-200"
+          >
+            Send Reset Instructions
           </Button>
         </form>
       </Form>
-    </div>
+    </motion.div>
   );
 }

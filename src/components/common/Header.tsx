@@ -1,10 +1,19 @@
-// components/common/Header.tsx
+"use client";
+import { usePathname } from "next/navigation";
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+  const isAuthPage =
+    pathname === "/sign-in" ||
+    pathname === "/sign-up" ||
+    pathname === "/forgot-password";
+
+  if (isAuthPage) return null;
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4">

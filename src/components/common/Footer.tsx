@@ -5,8 +5,17 @@
 
 import Link from "next/link";
 import { FaTwitter, FaFacebookF, FaInstagram, FaPinterestP } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+  const isAuthPage =
+    pathname === "/sign-in" ||
+    pathname === "/sign-up" ||
+    pathname === "/forgot-password";
+
+  if (isAuthPage) return null;
+
   return (
     <footer className="bg-white border-t border-gray-200 mt-8">
       <div className="max-w-7xl mx-auto px-4 py-6">

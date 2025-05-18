@@ -89,23 +89,23 @@ export default function SignUpForm({ initialEmail = "", onBack }: SignUpFormProp
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-            <FormField
-              control={form.control}
-              name="fullName"
-              render={({ field }) => (
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
                 <FormItem className="w-full">
                   <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input 
+                <FormControl>
+                  <Input 
                       placeholder="Name" 
-                      autoComplete="name"
-                      {...field} 
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                    autoComplete="name"
+                    {...field} 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
             <FormField
               control={form.control}
               name="username"
@@ -149,12 +149,12 @@ export default function SignUpForm({ initialEmail = "", onBack }: SignUpFormProp
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input 
+                    <Input 
                     placeholder="6+ characters" 
                     type="password"
-                    autoComplete="new-password"
-                    {...field} 
-                  />
+                      autoComplete="new-password"
+                      {...field} 
+                    />
                 </FormControl>
                 <FormMessage />
               </FormItem>
