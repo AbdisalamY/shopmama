@@ -12,7 +12,8 @@ const Footer = () => {
   const isAuthPage =
     pathname === "/sign-in" ||
     pathname === "/sign-up" ||
-    pathname === "/forgot-password";
+    pathname === "/forgot-password" ||
+    pathname.startsWith("/admin");
 
   if (isAuthPage) return null;
 
