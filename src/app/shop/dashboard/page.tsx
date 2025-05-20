@@ -1,4 +1,6 @@
-// src/app/shop/dashboard/page.tsx
+// File path: src/app/shop/dashboard/page.tsx
+// Replace the entire file with this code
+
 'use client';
 
 import { useState, useEffect } from 'react';
