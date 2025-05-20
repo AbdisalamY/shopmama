@@ -1,11 +1,6 @@
-/* File path: src/app/globals.css */
-/* Complete replacement file */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "tw-animate-css";
 
 :root {
   --color-background: var(--background);
